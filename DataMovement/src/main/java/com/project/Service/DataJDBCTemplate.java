@@ -15,7 +15,7 @@ public class DataJDBCTemplate {
 	 JdbcTemplate dataTemplate;
 	
 	public List<OrigTable> gallopData() {
-		return dataTemplate.query("SELECT * FROM GALLOP_TEST2 ",
+		return dataTemplate.query("SELECT * FROM GALLOP_INPUT_INTERFACE ",
 				new BeanPropertyRowMapper<OrigTable>(OrigTable.class)); 
 	}
 	
@@ -24,8 +24,4 @@ public class DataJDBCTemplate {
 				new BeanPropertyRowMapper<OrigTable>(OrigTable.class));
 	}
 	
-	public String hi() {
-		return "hi";
-	}
-	 
 }

@@ -34,24 +34,30 @@ public class DataController {
 		return  temp.payoutData();
 	}
 	
-	//Display the records between the given LMS_DATE
+	//Display the records between the given LMS_DATES
 	
 	@RequestMapping(path="/date/{S_DATE}/{E_DATE}")
     public List<OrigTable> displaydate(@PathVariable("S_DATE") String S_DATE,
     		                           @PathVariable("E_DATE") String E_DATE) {		
 		
-		return jdbc.query("SELECT * FROM GALLOP_TEST2 where LMS_DATE >= '"+S_DATE +"' and LMS_DATE <=  '"+E_DATE+"' " ,
+		/*return jdbc.query("SELECT * FROM PAYOUT_CBSL_PERCASE where LMS_DATE >= '"+S_DATE +"' and LMS_DATE <=  '"+E_DATE+"' " ,
+			    new BeanPropertyRowMapper<OrigTable>(OrigTable.class));	*/
+		
+		return jdbc.query("SELECT * FROM PAYOUT_CBSL_PERCASE where LMS_DATE BETWEEN '"+S_DATE +"' AND '"+E_DATE+"'",
 			    new BeanPropertyRowMapper<OrigTable>(OrigTable.class));	
 	}
+	
+	
+	
+	//Display the records from the given LMS_DATE
 	
 	@RequestMapping(path="/date/{LMS_DATE}")
     public List<OrigTable> displaydate(@PathVariable("LMS_DATE") String LMS_DATE)   {		
-		return jdbc.query("SELECT * FROM GALLOP_TEST2 where LMS_DATE = '"+LMS_DATE +"' ",
+		return jdbc.query("SELECT * FROM PAYOUT_CBSL_PERCASE where LMS_DATE = '"+LMS_DATE +"' ",
 			    new BeanPropertyRowMapper<OrigTable>(OrigTable.class));	
 	}
 	
-	@RequestMapping("/hi")
-	public String hey() {
-		return  temp.hi();
-	}
+	
+	
+	
 }

@@ -1,4 +1,4 @@
-package com.project.POJO;
+ package com.project.POJO;
 
 import java.sql.Date;
 
@@ -13,7 +13,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
-
 
 public class OrigTable {
 
@@ -1302,7 +1301,6 @@ public class OrigTable {
 	public void setMODIFIED_DATE(Date mODIFIED_DATE) {
 		MODIFIED_DATE = mODIFIED_DATE;
 	}
-	
 	
 	
 	

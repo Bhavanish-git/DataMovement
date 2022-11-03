@@ -1,10 +1,8 @@
 package com.project.POJO;
 
 import java.sql.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+  //changed agreement no and lms date __
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,13 +23,15 @@ import lombok.Setter;
 @Entity
 @Table(name = "GALLOP_TEST2")
 public class OrigTable {
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String AGREEMENT_NO ;
+	
+		@Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Column(name = "AGREEMENT_NO", nullable = false)
+		private String AGREEMENTNO ;
+	
 @Column
 	private String 
 	         
-			 
 			ASSET_CATEGORY ,
 			ASSET_TYPE,
 			BRANCH,
@@ -148,17 +150,17 @@ public class OrigTable {
 	
 			SC_INCENTIVE  ,
 			TL_SC_INCENTIVE ;  
-	@Column
-	private Date 
 	
-			LMS_DATE;
+	
+	@Column(name = "LMS_DATE", nullable = false)
+	private Date LMSDATE;
 
     public OrigTable() {
 	 
     }
 	
 	public OrigTable  (
-			String AGREEMENT_NO,
+			String AGREEMENTNO,
 			String ASSET_CATEGORY,
 			String ASSET_TYPE,
 			String BRANCH,
@@ -184,7 +186,7 @@ public class OrigTable {
 			String ZONE,
 		    String PRODUCT,
 		    String SCHEME_TYPE,
-			Date LMS_DATE, 
+			Date LMSDATE, 
 			double SC_INCENTIVE,
 			double TL_SC_INCENTIVE ,
 			Integer ADD_PO_FILE_PROCESSED_COUNT,
@@ -275,7 +277,7 @@ public class OrigTable {
 
 			)   { 
 		
-			this.AGREEMENT_NO = AGREEMENT_NO;
+			this.AGREEMENTNO = AGREEMENTNO;
 			this.ADD_PO_FILE_PROCESSED_COUNT = ADD_PO_FILE_PROCESSED_COUNT;
 			this.AMOUNT_FINANCED = AMOUNT_FINANCED;
 			this.ASSET_CATEGORY = ASSET_CATEGORY;
@@ -312,7 +314,7 @@ public class OrigTable {
 			this.EARLY_BIRD_INS_SLAB = EARLY_BIRD_INS_SLAB;
 			this.EARLY_BIRD_VOLUME = EARLY_BIRD_VOLUME;
 			this.EMPLOYEE_GRADE_PER = EMPLOYEE_GRADE_PER;
-			this.LMS_DATE = LMS_DATE;
+			this.LMSDATE = LMSDATE;
 			this.MANUFACTURER = MANUFACTURER;
 			this.OSB_BATCH_ID = OSB_BATCH_ID;
 			this.PREMIUM_COLLECTED = PREMIUM_COLLECTED;
@@ -391,12 +393,12 @@ public class OrigTable {
 			this.ZONE= ZONE;        }
 
 	
-	public String getAGREEMENT_NO() {
-		return AGREEMENT_NO;
+	public String getAGREEMENTNO() {
+		return AGREEMENTNO;
 	}
 
-	public void setAGREEMENT_NO(String aGREEMENT_NO) {
-		AGREEMENT_NO = aGREEMENT_NO;
+	public void setAGREEMENTNO(String aGREEMENT_NO) {
+		AGREEMENTNO = aGREEMENT_NO;
 	}
 
 	public String getASSET_CATEGORY() {
@@ -1295,18 +1297,14 @@ public class OrigTable {
 		TL_SC_INCENTIVE = tL_SC_INCENTIVE;
 	}
 
-	public Date getLMS_DATE() {
-		return LMS_DATE;
+	public Date getLMSDATE() {
+		return LMSDATE;
 	}
 
-	public void setLMS_DATE(Date lMS_DATE) {
-		LMS_DATE = lMS_DATE;
+	public void setLMSDATE(Date lMSDATE) {
+		LMSDATE = lMSDATE;
 	}
 
-	
-	
-	
-	
 	
 }
 
